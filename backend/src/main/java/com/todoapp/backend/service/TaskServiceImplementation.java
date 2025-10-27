@@ -54,6 +54,12 @@ public class TaskServiceImplementation implements TaskService {
     }
 
     @Override
+    public void deleteAllTasks() {
+        log.warn("Deleting all tasks from database");
+        taskRepository.deleteAll();
+    }
+
+    @Override
     public TaskResponse completeTask(Long id) {
         log.info("Marking task as completed: {}", id);
         

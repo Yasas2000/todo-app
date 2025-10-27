@@ -181,6 +181,99 @@ curl -X POST http://localhost:8080/api/tasks -H "Content-Type: application/json"
 - Security headers in Nginx
 - Environment-based configuration
 
+## 🧪 Testing
+
+This project includes comprehensive testing at multiple levels:
+
+### 🧩 Test Coverage Summary
+
+- **Unit Tests**: Service layer with Mockito (80%+ coverage)  
+- **Integration Tests**: Full stack testing with TestContainers  
+- **E2E Tests**: User workflow testing with Cypress  
+
+---
+
+### ⚙️ Backend Testing
+
+#### 🧠 Unit Tests (Service Layer)
+```bash
+cd backend
+./mvnw test -Dtest=TaskServiceImplTest
+```
+
+#### 🔗 Integration Tests (Full Stack with Real Database)
+```bash
+cd backend
+./mvnw test -Dtest=TaskControllerIntegrationTest
+```
+
+#### 📊 Code Coverage Report
+```bash
+cd backend
+./mvnw clean test
+open target/site/jacoco/index.html
+```
+
+**Coverage Goals:** 80%+ line coverage (enforced by JaCoCo)
+
+---
+
+### 💻 Frontend E2E Testing
+
+#### ⚙️ Prerequisites
+- Backend must be running on **http://localhost:8080** - (Database must be matched with application.properties) 
+- Frontend must be running on **http://localhost:5173**
+
+#### 🧪 Run E2E Tests (Headless)
+```bash
+cd frontend
+npm run test:e2e 
+```
+
+#### 🧭 Run E2E Tests (Interactive)
+```bash
+cd frontend
+npm run cypress:open
+```
+
+---
+
+### ✅ Test Scenarios Covered
+
+#### **CRUD Operations**
+- Create task with valid data  
+- Retrieve 5 most recent tasks  
+- Mark task as completed  
+- Validate only 5 tasks displayed  
+
+#### **Validation**
+- Empty field validation  
+- Character limit enforcement (100 title, 500 description)  
+- Invalid ID handling  
+
+#### **Edge Cases**
+- Empty task list state  
+- Exactly 5 tasks  
+- More than 5 tasks  
+- Rapid task completions  
+- Non-existent task operations  
+
+#### **User Experience**
+- Form clearing after submission  
+- Loading states  
+- Error messages  
+- Optimistic UI updates  
+- Timestamp display  
+
+---
+
+### 🚀 Continuous Integration Ready
+
+All tests are designed to run in CI/CD pipelines:
+- Backend tests use **TestContainers** (Docker required)  
+- E2E tests can run **headless**  
+- **Coverage reports** generated automatically 
+
 ## 📝 License
 
 MIT License

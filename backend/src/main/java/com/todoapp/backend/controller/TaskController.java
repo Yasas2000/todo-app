@@ -48,6 +48,17 @@ public class TaskController {
     }
 
     /**
+     * Deletes all tasks - FOR TESTING PURPOSES ONLY.
+     * DELETE /api/tasks
+     */
+    @DeleteMapping
+    public ResponseEntity<Void> deleteAllTasks() {
+        log.warn("DELETE /api/tasks - Deleting ALL tasks (test endpoint)");
+        taskService.deleteAllTasks();
+        return ResponseEntity.noContent().build();
+    }
+
+    /**
      * Marks a task as completed.
      * PUT /api/tasks/{id}/complete
      */

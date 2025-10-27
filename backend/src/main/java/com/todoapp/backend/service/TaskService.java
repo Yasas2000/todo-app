@@ -23,6 +23,11 @@ public interface TaskService {
      * @return List of up to 5 recent active tasks
      */
     List<TaskResponse> getRecentTasks();
+
+    /**
+     * Deletes all tasks - for testing purposes.
+     */
+    void deleteAllTasks();
     
     /**
      * Marks a task as completed.

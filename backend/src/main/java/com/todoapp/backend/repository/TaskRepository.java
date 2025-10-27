@@ -18,7 +18,6 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
      * Retrieves the 5 most recent non-completed tasks ordered by creation date.
      * @return List of up to 5 recent active tasks
      */
-    @Query("SELECT t FROM Task t WHERE t.completed = false ORDER BY t.createdAt DESC")
     List<Task> findTop5ByCompletedFalseOrderByCreatedAtDesc();
     
 }
