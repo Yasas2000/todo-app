@@ -51,6 +51,7 @@ A production-ready full-stack web application for managing to-do tasks, built wi
 - ✅ Input validation (client & server)
 - ✅ Optimistic UI updates
 - ✅ Production-ready containerization
+- ✅ Comprehensive testings
 
 ## 🚀 Quick Start with Docker (Recommended)
 
