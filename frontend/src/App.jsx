@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import TaskForm from './components/TaskForm/TaskForm';
+import TaskList from './components/TaskList/TaskList';
+import useTasks from './hooks/useTasks';
+import './App.css';
 
+/**
+ * Main App component.
+ * Orchestrates the todo application.
+ */
 function App() {
-  const [count, setCount] = useState(0)
+  const { tasks, loading, error, createTask, completeTask } = useTasks();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <header className="app-header">
+        <h1>📝 Todo Task Manager</h1>
+        <p>Manage your tasks efficiently</p>
+      </header>
+      
+      <main className="app-main">
+        <TaskForm onSubmit={createTask} loading={loading} />
+        <TaskList
+          tasks={tasks}
+          loading={loading}
+          error={error}
+          onCompleteTask={completeTask}
+        />
+      </main>
+      
+      <footer className="app-footer">
+        <p>Built with Spring Boot + React + PostgreSQL</p>
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;

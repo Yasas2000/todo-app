@@ -1,0 +1,41 @@
+.task-list-container {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.task-list-container h2 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.loading,
+.error,
+.empty-state {
+  padding: 40px;
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+}
+
+.error {
+  color: #c62828;
+  background: #ffebee;
+  border-radius: 4px;
+}
+
+.loading {
+  color: #1976d2;
+}
+
+.empty-state {
+  color: #999;
+  font-style: italic;
+}
