@@ -58,8 +58,9 @@ A production-ready full-stack web application for managing to-do tasks, built wi
 ### One-Command Deployment
 
 ```bash
-git clone <your-repo-url>
-cd fullstack-todo-app
+git clone https://github.com/Yasas2000/todo-app
+cd todo-app
+docker-compose down -v
 docker-compose up --build
 ```
 
@@ -105,20 +106,6 @@ npm install
 npm run dev
 ```
 Frontend will start at http://localhost:5173
-
-## 🧪 Testing
-
-### Backend
-```bash
-cd backend
-./mvnw test
-```
-
-### Frontend
-```bash
-cd frontend
-npm test
-```
 
 ## 📁 Project Structure
 
